@@ -1,84 +1,80 @@
-# LogicPy
-A Python-based interactive logic gate simulator with drag-and-drop components, wiring, saving, loading, and real-time circuit evaluation.
+# PyLogic V1.1.0
 
-## Features
+PyLogic is a comprehensive, cross-platform interactive digital logic gate simulator built with Python and Pygame. It provides hardware enthusiasts, students etc. with an intuitive playground to construct, test, and analyze logical circuits in real time. 
 
-- Drag-and-drop placement of logic gates and components  
-- Interactive wiring system with bend points  
-- Switches to toggle signals ON/OFF  
-- LEDs to display outputs in real-time  
-- Save and load circuits (JSON format)  
-- Real-time evaluation of logic gates  
-- Delete components and wires easily
-**Note:** Your circuit will be saved and loaded using the file named `circuit.json`.
-**Warning:** Be careful! Saving will overwrite the existing `circuit.json` file!
-### Supported Components
+---
 
-- **Logic Gates:** AND, OR, NOT, NAND, NOR, XOR, XNOR  
-- **Input Components:** Switch  
-- **Output Components:** LED  
-- **Wires:** Connect components with flexible wiring and bend points
+## Project Rebranding Notice
 
-## Installation
+The project has transitioned its official name from **LogicPy** to **PyLogic**.
 
-1. Make sure Python 3.8+ is installed  
-2. Install pygame and numpy:  
-   ```bash
-   pip install pygame, numpy
-   ```  
-3. Clone this repository:  
-   ```bash
-   git clone <(https://github.com/EgeOnderX/LogicPy)>
-   ```  
-4. Run the simulator:  
-   ```bash
-   python main.py
-   ```
+---
 
-## Usage
+## New Features
 
-- Click on a component from the sidebar to select it  
-- Click on the canvas to place the selected component  
-- Drag components to reposition them  
-- Click on slots to start and end wiring  
-- Right-click on wires or components to delete them  
-- Press `S` to save the current circuit  
-- Press `L` to load the last saved circuit
+* **Enhanced Sidebar Inventory:** Optimised the component selection panel for a smoother user interface layout.
+* **Integrated Menu Bar:** Added a comprehensive top menu bar structure providing quick access to essential application features.
+* **Dynamic Theme Swapping:** Introduced live toggle capabilities between fully customized Light and Dark modes.
+* **Persistent Configuration Engine:** Implemented automated `config.cfg` serialization to preserve localized user environments across launches.
+* **Quad-Language Localization:** Added full operational translations for English, Turkish, German, and French.
+* **Immersive Fullscreen Mode:** Deployed a hardware-accelerated scaling display module to support seamless fullscreen toggling without viewport distortion.
 
-## Why does this project exist even though there are other logic gate simulators online?
+## Bug Fixes & Stability Adjustments
 
-Because unlike the others, this simulator offers:
-- Real-time reactions  
-- The ability to save and reopen circuits  
-- Wire bending and dynamic interaction  
+* **Wiring System Overhaul:** Resolved logic routing failures, erratic drawing behaviors, and trace errors within multi-segment connection wires.
+* **Cascaded Component Pipeline:** Corrected visual rendering artifacts and collision issues triggered when placing multiple AND gates in close proximity.
+* **Universal Node Shifting:** Fixed a coordinate drift issue where internal connection points and logical slots failed to translate alongside dragged Switches and LEDs.
+* **Null Pointer Prevention:** Eliminated fatal exceptions caused by dangling, incomplete, or `None`-returning wire endpoints.
+* **Gate Evaluation Core Updates:** Fixed calculation inaccuracies and general runtime bugs inside the primary logic gate simulation loop.
+---
 
-These features make it uniquely responsive and more immersive than standard simulators.
+## Key Features
 
-## Screenshots
+### 1. High-Fidelity Logic Simulation Engine
+* **Component Diversity:** Features a robust array of standard logical components including basic gates (AND, OR, NOT), universal gates (NAND, NOR), and advanced gates (XOR, XNOR), alongside interactive input elements (Switches) and visual output modules (LEDs).
+* **Real-Time Signal Propagation:** Implements a dynamic logic calculation loop that sequentially evaluates input states, executes gate logic, and updates wire values seamlessly at 60 frames per second.
+* **Advanced Wiring System:** Supports intricate wiring mechanics, allowing users to trace real-time signal previews and inject multi-segment bend points onto the canvas for clean engineering schematic layouts.
 
-<img width="998" height="627" alt="image" src="https://github.com/user-attachments/assets/e4670bcd-4654-4e59-85b5-e4c1b3bd4706" />
+### 2. Modern UI/UX and Theme Adaptation
+* **Dual Palette Infrastructure:** Equipped with native Light Mode and Dark Mode configurations. The interfaces switch color spaces dynamically, adjusting backgrounds, text surfaces, bounding boxes, and accents to reduce eye strain.
+* **Engineering Grid Overlay:** Renders a non-intrusive geometric grid background aligned with the viewport to assist users with precise component placement and linear alignment.
+* **Layered Rendering Pipeline:** Orchestrates assets into four isolated rendering layers to guarantee that high-priority user interface panels (such as toolbars and dropdowns) always hover legibly above the underlying simulation canvas.
 
+### 3. Native Internationalization
+* Provides full multi-language localization directly within the source architecture. The entire environment can instantly adapt its layout prose to:
+  * English (EN)
+  * Turkish (TR)
+  * German (DE)
+  * French (FR)
 
-## License
+### 4. Configuration Persistence
+* **State Management:** Automatically saves user environmental variables (selected language, screen mode, active theme) into a local `config.cfg` file upon termination, parsing it on initialization to preserve user preferences.
+* **Circuit Serialization:** Supports complete structural JSON serialization. Complex schematic structures—including logic states, canvas coordinates, discrete slot indices, component types, and colored wire vectors—can be dumped to or pulled from local files (`circuit.json`) instantly.
 
-MIT License
+### 5. Resolution Independence & Robust Interaction
+* **Aspect Scalability:** Utilizes hardware-accelerated scaling flags (`pygame.SCALED`), preventing layout deformation, pixel stretching, or coordinate drift when shifting between resizable windowed formats and full-screen displays.
+* **Universal Delta Shifting:** Integrates an error-correcting delta coordinate modifier. When dragging components across the canvas, internal bounding boxes (`pygame.Rect`) and logical contact slots are recalculated programmatically relative to physical mouse deltas, preventing component misalignment bugs.
 
-Copyright (c) 2025 Ege Önder
+---
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+## User Interface
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+### Mouse Inputs
+* **Left Click (Canvas Sidebar):** Selects a logical gate or component from the tool inventory to prepare for canvas placement.
+* **Left Click (Active Canvas):** Places the selected element, toggles interactive Switches between high (1) and low (0) impedance states, or initiates/completes wire links from defined slot nodes.
+* **Left Click + Drag:** Engages the universal delta shifter to move placed components safely across the environment without breaking coordinate bounds.
+* **Right Click:** Deletes targeted components from the simulator canvas. It automatically traces connected paths and clears dead-ended wire vectors from memory.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+### Keyboard Shortcuts
+* **S Key:** Silently executes the JSON serialization routines to back up the current layout to `circuit.json`.
+* **L Key:** Deserializes and reloads the active layout from `circuit.json` onto the workspace grid.
+
+## Video
+
+https://github.com/user-attachments/assets/2f15a8b0-10d2-43d3-b5b1-cf860569f21a
+
+---
+
+⭐ **Support the Project**
+If you like this project and find it useful, please consider giving it a star! It means a lot and helps the project grow!
+
