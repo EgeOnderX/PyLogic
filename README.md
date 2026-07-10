@@ -75,6 +75,6 @@ https://github.com/user-attachments/assets/2f15a8b0-10d2-43d3-b5b1-cf860569f21a
 
 ---
 
-⭐ **Support the Project**
-If you like this project and find it useful, please consider giving it a star! It means a lot and helps the project grow!
+## ⭐ **Support the Project**
+### If you like this project and find it useful, please consider giving it a star! It means a lot and helps the project grow!
 
