@@ -10,6 +10,18 @@ The project has transitioned its official name from **LogicPy** to **PyLogic**.
 
 ---
 
+## License Update Notice
+
+**Important Change Regarding Licensing:**
+
+Please be advised that this project has transitioned to the **Apache License 2.0** for all versions starting from **1.1.0**. 
+
+*   **Versions 1.1.0 and later:** Distributed under the terms of the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
+*   **Version 1.0.0:** Remains licensed under the [MIT License](https://opensource.org/licenses/MIT).
+
+If you are using or distributing version 1.0.0, the MIT License terms continue to apply. For all subsequent versions, please refer to the `LICENSE` file included in the repository for the full terms and conditions of the Apache License 2.0.
+
+---
 ## New Features
 
 * **Enhanced Sidebar Inventory:** Optimised the component selection panel for a smoother user interface layout.
